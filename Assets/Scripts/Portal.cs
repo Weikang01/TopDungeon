@@ -9,14 +9,12 @@ public class Portal : Collidable
 
     protected override void OnCollide(Collider2D coll)
     {
-        Debug.Log("pesos: " + GameManager.instance.pesos);
         if (coll.name == "Player")
         {
             // Teleport the player
             GameManager.instance.SaveState();
             string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
             SceneManager.LoadScene(sceneName);
-            Debug.Log("pesos: " + GameManager.instance.pesos);
         }
     }
 }
