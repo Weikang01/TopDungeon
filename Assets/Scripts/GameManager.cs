@@ -6,6 +6,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    // References
+    public Player player;
+    // Public weapon weapon ...
+    public FloatingTextManager floatingTextManager;
+
+    // Resources
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> xpTable;
+
     private void Awake()
     {
         if (GameManager.instance != null)
@@ -14,21 +26,16 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (player == null)
+        {
+            Debug.Log("awda");
+        }
+
         instance = this;
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Resources
-    public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    public List<int> weaponPrices;
-    public List<int> xpTable;
-
-    // References
-    public Player player;
-    // Public weapon weapon ...
-    public FloatingTextManager floatingTextManager;
 
     // Logic
     public int pesos;
