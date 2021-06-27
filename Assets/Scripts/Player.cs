@@ -69,7 +69,7 @@ public class Player : Mover
         isAlive = false;
     }
 
-    internal void Respawn()
+    public void Respawn()
     {
         Heal(maxHitpoint);
         isAlive = true;
