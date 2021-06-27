@@ -8,6 +8,8 @@ public class Weapon : Collidable
     // Damage struct
     public int[] damagePoints = { 1, 2, 3, 4, 5, 6, 7, 8 };
     public float[] pushForces = { 2.0f ,3.0f, 4.0f , 5.0f , 6.0f , 7.0f, 8.0f, 9.0f };
+    public Vector2[] ColliderOffsets = {};
+    public Vector2[] ColliderSizes = {};
 
     // Upgrade
     public int weaponLevel = 0;
@@ -74,5 +76,10 @@ public class Weapon : Collidable
     {
         weaponLevel = level;
         spriteRenderer.sprite = GameManager.instance.weaponSprites[level];
+        if (boxCollider)
+        {
+            boxCollider.offset = ColliderOffsets[level];
+            boxCollider.size = ColliderSizes[level];
+        }
     }
 }
